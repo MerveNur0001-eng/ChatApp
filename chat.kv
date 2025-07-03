@@ -1,0 +1,130 @@
+<MessageBox@BoxLayout>:
+    orientation: 'horizontal'
+    size_hint_y: None
+    height: self.minimum_height
+    padding: 10
+    spacing: 10
+    canvas.before:
+        Color:
+            rgba: (0.9, 0.9, 0.9, 1)
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [10,]
+    Label:
+        id: message
+        text: ""
+        font_size: 16
+        color: (0, 0, 0, 1)
+        size_hint_x: 1
+        size_hint_y: None
+        height: self.texture_size[1] + 20
+        text_size: self.width, None
+        halign: "left"
+        valign: "middle"
+        padding: 10, 10
+
+BoxLayout:
+    id: main_layout
+    orientation: "vertical"
+    spacing: 10
+    padding: 10
+    canvas.before:
+        Color:
+            rgba: (0.85, 0.92, 1, 1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        size_hint_y: None
+        height: 50
+        spacing: 10
+        TextInput:
+            id: username_input
+            hint_text: "Enter your name"
+            multiline: False
+            font_size: 16
+            background_color: (0.95, 0.95, 0.95, 1)
+            foreground_color: (0, 0, 0, 1)
+        Button:
+            id: join_button
+            text: "Join"
+            font_size: 16
+            background_color: (0.6, 0.8, 0.9, 1)
+            color: (0, 0, 0, 1)
+            size_hint_x: None
+            width: 80
+            on_release: app.connect_to_server()
+        Button:
+            id: theme_button
+            text: "E"
+            font_size: 16
+            background_color: (0.6, 0.8, 0.9, 1)
+            color: (0, 0, 0, 1)
+            size_hint_x: None
+            width: 50
+            on_release: app.show_theme_picker()
+
+    BoxLayout:
+        size_hint_y: None
+        height: 50
+        spacing: 10
+        Button:
+            id: disconnect_button
+            text: "Disconnect"
+            font_size: 16
+            background_color: (0.6, 0.4, 0.2, 1)
+            color: (1, 1, 1, 1)
+            on_release: app.disconnect_from_server()
+            disabled: True
+        Button:
+            id: reconnect_button
+            text: "Reconnect"
+            font_size: 16
+            background_color: (0.4, 0.8, 0.4, 1)
+            color: (0, 0, 0, 1)
+            on_release: app.reconnect_to_server()
+            disabled: True
+
+    ScrollView:
+        id: scroll
+        do_scroll_x: False
+        do_scroll_y: True
+        GridLayout:
+            id: chat_log
+            cols: 1
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: 5
+            padding: 10
+
+    BoxLayout:
+        size_hint_y: None
+        height: 50
+        spacing: 10
+        TextInput:
+            id: message_input
+            hint_text: "Type your message..."
+            multiline: False
+            font_size: 16
+            background_color: (0.95, 0.95, 0.95, 1)
+            foreground_color: (0, 0, 0, 1)
+        Button:
+            id: send_button
+            text: "Send"
+            font_size: 16
+            background_color: (0.2, 0.4, 0.6, 1)
+            color: (1, 1, 1, 1)
+            size_hint_x: None
+            width: 80
+            on_release: app.send_message()
+        Button:
+            id: clear_button
+            text: "Clear Chat"
+            font_size: 16
+            background_color: (0.6, 0.4, 0.2, 1)
+            color: (1, 1, 1, 1)
+            size_hint_x: None
+            width: 100
+            on_release: app.clear_chat()

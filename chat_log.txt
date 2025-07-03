@@ -1,0 +1,51 @@
+09 June 2025 21:00 - SERVER: Connected to server
+09 June 2025 21:00 - SERVER: merve added to the chat
+09 June 2025 21:04 - SERVER: Connected to server
+09 June 2025 21:04 - SERVER: merve added to the chat
+09 June 2025 21:04 - SYSTEM: Disconnected from server.
+09 June 2025 21:04 - SERVER: Reconnected to server
+09 June 2025 21:04 - SERVER: merve added to the chat
+09 June 2025 21:04 - SYSTEM: Disconnected from server.
+09 June 2025 21:04 - SERVER: Reconnected to server
+09 June 2025 21:04 - SERVER: merve added to the chat
+09 June 2025 21:04 - SYSTEM: Disconnected from server.
+03 July 2025 15:32 - SERVER: Connected to server
+03 July 2025 15:33 - ERROR: Connection failed: [WinError 10061] Hedef makine etkin olarak reddettiğinden bağlantı kurulamadı
+03 July 2025 15:33 - ERROR: Disconnection failed: [WinError 10054] Varolan bir bağlantı uzaktaki bir ana bilgisayar tarafından zorla kapatıldı
+03 July 2025 15:33 - ERROR: Disconnection failed: [WinError 10054] Varolan bir bağlantı uzaktaki bir ana bilgisayar tarafından zorla kapatıldı
+03 July 2025 15:33 - ERROR: Disconnection failed: [WinError 10054] Varolan bir bağlantı uzaktaki bir ana bilgisayar tarafından zorla kapatıldı
+03 July 2025 15:34 - SERVER: Connected to server
+03 July 2025 15:34 - ERROR: Send failed: [WinError 10054] Varolan bir bağlantı uzaktaki bir ana bilgisayar tarafından zorla kapatıldı
+03 July 2025 15:35 - ERROR: Disconnection failed: [WinError 10054] Varolan bir bağlantı uzaktaki bir ana bilgisayar tarafından zorla kapatıldı
+03 July 2025 15:35 - SERVER: Connected to server
+03 July 2025 15:35 - SERVER: Merve added to the chat
+03 July 2025 15:36 - SERVER: Connected to server
+at
+03 July 2025 15:36 - SERVER: Merve added to the chat
+03 July 2025 15:36 - Merve: Hi , how are you ?
+03 July 2025 15:36 - Merve: hi
+03 July 2025 15:41 - SERVER: Merve left the chat
+03 July 2025 15:43 - ERROR: Connection failed: [WinError 10054] Varolan bir bağlantı uzaktaki bir ana bilgisayar tarafından zorla kapatıldı
+03 July 2025 15:43 - ERROR: Connection failed: [WinError 10061] Hedef makine etkin olarak reddettiğinden bağlantı kurulamadı
+03 July 2025 15:43 - ERROR: Connection failed: [WinError 10061] Hedef makine etkin olarak reddettiğinden bağlantı kurulamadı
+03 July 2025 15:43 - ERROR: Connection failed: [WinError 10061] Hedef makine etkin olarak reddettiğinden bağlantı kurulamadı
+03 July 2025 15:45 - SERVER: Connected to server
+03 July 2025 15:45 - Merve: hi whatap
+03 July 2025 15:45 - SERVER: merve added to the chat
+03 July 2025 15:45 - SERVER: Connected to server
+03 July 2025 15:45 - merve: hellooo
+03 July 2025 15:45 - merve: hellooo
+03 July 2025 15:46 - SYSTEM: Disconnected from server.
+03 July 2025 15:46 - SERVER: Merve left the chat
+03 July 2025 15:53 - SERVER: Connected to server
+03 July 2025 15:53 - SERVER: Connected to server
+03 July 2025 15:53 - SERVER: Aslı added to the chat
+03 July 2025 15:53 - Aslı: selam
+03 July 2025 15:53 - Aslı: selam
+03 July 2025 15:53 - Merve: merhaba
+03 July 2025 15:53 - Merve: merhaba
+03 July 2025 15:53 - Merve: nasılsın
+03 July 2025 15:53 - Merve: nasılsın
+03 July 2025 15:53 - Aslı: thanks
+03 July 2025 15:53 - Aslı: thanks
+03 July 2025 15:57 - SERVER: Aslı left the chat
