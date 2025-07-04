@@ -1,10 +1,19 @@
+from dotenv import load_dotenv
+import os
 import socket
 import threading
 
-HOST = '127.0.0.1'
-PORT = 3456
+load_dotenv()
+
+CHAT_HOST = os.getenv("CHAT_HOST")
+CHAT_PORT = os.getenv("CHAT_PORT")
+
+if not CHAT_HOST or not CHAT_PORT:
+    raise ValueError("CHAT_HOST and CHAT_PORT environment variables were not loaded from .env file.")
+
+PORT = int(CHAT_PORT)
 LISTENER_LIMIT = 5
-active_clients = []  # List of tuples (username, client_socket)
+active_clients = []  
 
 def listen_for_messages(client, username):
     while True:
@@ -30,8 +39,8 @@ def send_message_to_client(client, message):
         remove_client(client, None)
 
 def send_messages_to_all(message, sender_socket):
-    for user in active_clients[:]:  # Use copy to avoid modification during iteration
-        if user[1] != sender_socket:  # Don't send back to the sender
+    for user in active_clients[:]:  
+        if user[1] != sender_socket:  
             send_message_to_client(user[1], message)
 
 def remove_client(client, username):
@@ -42,7 +51,6 @@ def remove_client(client, username):
             send_messages_to_all(prompt_message, client)
 
 def client_handler(client):
-    # Receive username immediately
     try:
         username = client.recv(2048).decode('utf-8')
         if username:
@@ -59,10 +67,10 @@ def client_handler(client):
 def main():
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
-        server.bind((HOST, PORT))
-        print(f"Running the server on {HOST} {PORT}")
+        server.bind((CHAT_HOST, PORT))
+        print(f"Running the server on {CHAT_HOST} {PORT}")
     except:
-        print(f"Unable to bind to host {HOST} and port {PORT}")
+        print(f"Unable to bind to host {CHAT_HOST} and port {PORT}")
         return
 
     server.listen(LISTENER_LIMIT)

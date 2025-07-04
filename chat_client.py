@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+import os
 import socket
 import threading
 from kivy.app import App
@@ -12,8 +14,15 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.graphics import Color, RoundedRectangle, Rectangle
 from datetime import datetime
 
-HOST = '127.0.0.1'
-PORT = 3456
+load_dotenv()
+
+CHAT_HOST = os.getenv("CHAT_HOST")
+CHAT_PORT = os.getenv("CHAT_PORT")
+
+if not CHAT_HOST or not CHAT_PORT:
+    raise ValueError("CHAT_HOST and CHAT_PORT environment variables were not loaded from .env file.")
+
+PORT = int(CHAT_PORT)
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 is_connected = False
@@ -29,9 +38,9 @@ class ChatApp(App):
                 'button_bg': (0.6, 0.8, 0.9, 1),
                 'send_button_bg': (0.2, 0.4, 0.6, 1),
                 'message_bg': (0.9, 0.9, 0.9, 1),
-                'server_message_bg': (0.98, 0.98, 0.85, 1),  # Light yellow for server
-                'own_message_bg': (0.9, 0.98, 0.9, 1),       # Light green for user
-                'other_message_bg': (0.98, 0.92, 0.95, 1),   # Light pink for others
+                'server_message_bg': (0.98, 0.98, 0.85, 1),  
+                'own_message_bg': (0.9, 0.98, 0.9, 1),       
+                'other_message_bg': (0.98, 0.92, 0.95, 1),   
                 'text_color': (0, 0, 0, 1),
                 'button_text_color': (1, 1, 1, 1),
             },
@@ -41,9 +50,9 @@ class ChatApp(App):
                 'button_bg': (0.7, 0.7, 0.7, 1),
                 'send_button_bg': (0.5, 0.5, 0.5, 1),
                 'message_bg': (0.85, 0.85, 0.85, 1),
-                'server_message_bg': (0.97, 0.97, 0.90, 1),  # Light yellow
-                'own_message_bg': (0.92, 0.97, 0.92, 1),     # Light green
-                'other_message_bg': (0.97, 0.94, 0.96, 1),   # Light pink
+                'server_message_bg': (0.97, 0.97, 0.90, 1),  
+                'own_message_bg': (0.92, 0.97, 0.92, 1),  
+                'other_message_bg': (0.97, 0.94, 0.96, 1),  
                 'text_color': (0, 0, 0, 1),
                 'button_text_color': (1, 1, 1, 1),
             },
@@ -53,9 +62,9 @@ class ChatApp(App):
                 'button_bg': (0.6, 0.9, 0.7, 1),
                 'send_button_bg': (0.3, 0.7, 0.5, 1),
                 'message_bg': (0.9, 0.95, 0.9, 1),
-                'server_message_bg': (0.97, 0.98, 0.92, 1),  # Light yellow
-                'own_message_bg': (0.92, 0.98, 0.92, 1),     # Light green
-                'other_message_bg': (0.96, 0.96, 0.94, 1),   # Light pink
+                'server_message_bg': (0.97, 0.98, 0.92, 1), 
+                'own_message_bg': (0.92, 0.98, 0.92, 1),     
+                'other_message_bg': (0.96, 0.96, 0.94, 1),   
                 'text_color': (0, 0, 0, 1),
                 'button_text_color': (1, 1, 1, 1),
             },
@@ -65,9 +74,9 @@ class ChatApp(App):
                 'button_bg': (0.9, 0.7, 0.7, 1),
                 'send_button_bg': (0.8, 0.5, 0.5, 1),
                 'message_bg': (0.95, 0.9, 0.9, 1),
-                'server_message_bg': (0.99, 0.97, 0.90, 1),  # Light yellow
-                'own_message_bg': (0.95, 0.98, 0.95, 1),     # Light green
-                'other_message_bg': (0.98, 0.95, 0.96, 1),   # Light pink
+                'server_message_bg': (0.99, 0.97, 0.90, 1),  
+                'own_message_bg': (0.95, 0.98, 0.95, 1),     
+                'other_message_bg': (0.98, 0.95, 0.96, 1),   
                 'text_color': (0, 0, 0, 1),
                 'button_text_color': (1, 1, 1, 1),
             },
@@ -77,9 +86,9 @@ class ChatApp(App):
                 'button_bg': (0.7, 0.6, 0.9, 1),
                 'send_button_bg': (0.5, 0.4, 0.7, 1),
                 'message_bg': (0.9, 0.9, 0.95, 1),
-                'server_message_bg': (0.97, 0.97, 0.93, 1),  # Light yellow
-                'own_message_bg': (0.93, 0.97, 0.93, 1),     # Light green
-                'other_message_bg': (0.96, 0.94, 0.97, 1),   # Light pink
+                'server_message_bg': (0.97, 0.97, 0.93, 1),  
+                'own_message_bg': (0.93, 0.97, 0.93, 1),     
+                'other_message_bg': (0.96, 0.94, 0.97, 1),   
                 'text_color': (0, 0, 0, 1),
                 'button_text_color': (1, 1, 1, 1),
             },
@@ -89,9 +98,9 @@ class ChatApp(App):
                 'button_bg': (0.8, 0.2, 0.2, 1),
                 'send_button_bg': (0.7, 0.1, 0.1, 1),
                 'message_bg': (1, 0.9, 0.9, 1),
-                'server_message_bg': (0.99, 0.98, 0.92, 1),  # Light yellow
-                'own_message_bg': (0.95, 0.98, 0.95, 1),     # Light green
-                'other_message_bg': (0.98, 0.95, 0.96, 1),   # Light pink
+                'server_message_bg': (0.99, 0.98, 0.92, 1),  
+                'own_message_bg': (0.95, 0.98, 0.95, 1),     
+                'other_message_bg': (0.98, 0.95, 0.96, 1),   
                 'text_color': (1, 1, 1, 1),
                 'button_text_color': (1, 1, 1, 1),
             },
@@ -101,9 +110,9 @@ class ChatApp(App):
                 'button_bg': (0.2, 0.3, 0.5, 1),
                 'send_button_bg': (0.1, 0.2, 0.4, 1),
                 'message_bg': (0.3, 0.3, 0.5, 1),
-                'server_message_bg': (0.97, 0.97, 0.93, 1),  # Light yellow
-                'own_message_bg': (0.93, 0.97, 0.93, 1),     # Light green
-                'other_message_bg': (0.96, 0.94, 0.97, 1),   # Light pink
+                'server_message_bg': (0.97, 0.97, 0.93, 1),  
+                'own_message_bg': (0.93, 0.97, 0.93, 1),     
+                'other_message_bg': (0.96, 0.94, 0.97, 1),   
                 'text_color': (1, 1, 1, 1),
                 'button_text_color': (1, 1, 1, 1),
             },
@@ -113,9 +122,9 @@ class ChatApp(App):
                 'button_bg': (0.9, 0.5, 0.2, 1),
                 'send_button_bg': (0.8, 0.4, 0.1, 1),
                 'message_bg': (1, 0.8, 0.7, 1),
-                'server_message_bg': (0.99, 0.98, 0.92, 1),  # Light yellow
-                'own_message_bg': (0.95, 0.98, 0.95, 1),     # Light green
-                'other_message_bg': (0.98, 0.95, 0.96, 1),   # Light pink
+                'server_message_bg': (0.99, 0.98, 0.92, 1),  
+                'own_message_bg': (0.95, 0.98, 0.95, 1),     
+                'other_message_bg': (0.98, 0.95, 0.96, 1),   
                 'text_color': (0, 0, 0, 1),
                 'button_text_color': (1, 1, 1, 1),
             },
@@ -125,9 +134,9 @@ class ChatApp(App):
                 'button_bg': (0.3, 0.6, 0.4, 1),
                 'send_button_bg': (0.2, 0.5, 0.3, 1),
                 'message_bg': (0.85, 0.9, 0.85, 1),
-                'server_message_bg': (0.97, 0.98, 0.92, 1),  # Light yellow
-                'own_message_bg': (0.92, 0.98, 0.92, 1),     # Light green
-                'other_message_bg': (0.96, 0.96, 0.94, 1),   # Light pink
+                'server_message_bg': (0.97, 0.98, 0.92, 1),  
+                'own_message_bg': (0.92, 0.98, 0.92, 1),     
+                'other_message_bg': (0.96, 0.94, 0.97, 1),   
                 'text_color': (0, 0, 0, 1),
                 'button_text_color': (1, 1, 1, 1),
             },
@@ -137,9 +146,9 @@ class ChatApp(App):
                 'button_bg': (0.5, 0.3, 0.7, 1),
                 'send_button_bg': (0.4, 0.2, 0.6, 1),
                 'message_bg': (0.9, 0.85, 0.95, 1),
-                'server_message_bg': (0.97, 0.97, 0.93, 1),  # Light yellow
-                'own_message_bg': (0.93, 0.97, 0.93, 1),     # Light green
-                'other_message_bg': (0.96, 0.94, 0.97, 1),   # Light pink
+                'server_message_bg': (0.97, 0.97, 0.93, 1),  
+                'own_message_bg': (0.93, 0.97, 0.93, 1),     
+                'other_message_bg': (0.96, 0.94, 0.97, 1),   
                 'text_color': (0, 0, 0, 1),
                 'button_text_color': (1, 1, 1, 1),
             }
@@ -159,7 +168,7 @@ class ChatApp(App):
         self.username = self.root.ids.username_input.text.strip()
         if self.username:
             try:
-                client_socket.connect((HOST, PORT))
+                client_socket.connect((CHAT_HOST, PORT))
                 client_socket.sendall(self.username.encode('utf-8'))
                 response = client_socket.recv(2048).decode('utf-8')
                 if "Connected to server" in response:
@@ -195,7 +204,7 @@ class ChatApp(App):
         if not is_connected and self.username:
             try:
                 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                client_socket.connect((HOST, PORT))
+                client_socket.connect((CHAT_HOST, PORT))
                 client_socket.sendall(self.username.encode('utf-8'))
                 response = client_socket.recv(2048).decode('utf-8')
                 if "Connected to server" in response:
