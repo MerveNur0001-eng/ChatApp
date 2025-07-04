@@ -1,0 +1,17 @@
+04 July 2025 10:35 - SERVER: Connected to server
+04 July 2025 10:36 - SERVER: Connected to server
+04 July 2025 10:36 - SERVER: Nur added to the chat
+04 July 2025 10:39 - Nur: Hi, Mer
+04 July 2025 10:39 - Nur: Hi, Mer
+04 July 2025 10:41 - SERVER: Merve left the chat
+04 July 2025 10:41 - SERVER: Connected to server
+04 July 2025 10:42 - SERVER: Connected to server
+04 July 2025 10:42 - SERVER: Nur added to the chat
+04 July 2025 10:42 - Nur: Hi
+04 July 2025 10:42 - Nur: Hi
+04 July 2025 10:42 - Merve: Hi, how are you Nur ?
+04 July 2025 10:42 - Merve: Hi, how are you Nur ?
+04 July 2025 10:43 - Nur: I am doing great, how about you ?
+04 July 2025 10:43 - Nur: I am doing great, how about you ?
+04 July 2025 10:43 - Merve: I am fine , thanks.
+04 July 2025 10:43 - Merve: I am fine , thanks.

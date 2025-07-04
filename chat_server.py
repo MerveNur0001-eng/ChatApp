@@ -40,9 +40,8 @@ def send_message_to_client(client, message):
 
 def send_messages_to_all(message, sender_socket):
     for user in active_clients[:]:  
-        if user[1] != sender_socket:  
-            send_message_to_client(user[1], message)
-
+        send_message_to_client(user[1], message)
+        
 def remove_client(client, username):
     if (username, client) in active_clients:
         active_clients.remove((username, client))
